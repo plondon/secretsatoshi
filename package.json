@@ -1,0 +1,13 @@
+{
+  "name": "secretsatoshi",
+  "version": "1.0.0",
+  "description": "Blockchain's Employee Reward Program",
+  "keywords": [
+    "blockchain"
+  ],
+  "devDependencies": {
+    "express": "^4.13.4",
+    "gulp": "^3.9.1",
+    "gulp-sass": "^2.2.0"
+  }
+}
