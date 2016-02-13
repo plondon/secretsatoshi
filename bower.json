@@ -1,0 +1,15 @@
+{
+  "name": "secretsatoshi",
+  "description": "Blockchain's Employee Reward Program",
+  "main": "index.html",
+  "authors": [
+    "Phil London"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "blockchain"
+  ],
+  "dependencies": {
+    "jquery": "~2.2.0"
+  }
+}
