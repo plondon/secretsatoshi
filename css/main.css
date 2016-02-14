@@ -1,3 +1,82 @@
-body {
-  background: blue;
-  color: red; }
+@font-face {
+  font-family: PacFont;
+  src: url("fonts/pacfont/pac-font.ttf"); }
+
+html, body {
+  background: #049bd4;
+  position: relative;
+  overflow: hidden;
+  height: 100%;
+  width: 100%;
+  margin: 0px; }
+
+.hidden {
+  opacity: 0; }
+
+#intro {
+  height: 100%;
+  display: -webkit-box;
+  display: -moz-box;
+  display: box;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -moz-box-align: center;
+  box-align: center;
+  -webkit-align-items: center;
+  -moz-align-items: center;
+  -ms-align-items: center;
+  -o-align-items: center;
+  align-items: center;
+  -ms-flex-align: center;
+  -webkit-box-orient: vertical;
+  -moz-box-orient: vertical;
+  box-orient: vertical;
+  -webkit-box-direction: normal;
+  -moz-box-direction: normal;
+  box-direction: normal;
+  -webkit-flex-direction: column;
+  -moz-flex-direction: column;
+  flex-direction: column;
+  -ms-flex-direction: column;
+  -webkit-box-pack: center;
+  -moz-box-pack: center;
+  box-pack: center;
+  -webkit-justify-content: center;
+  -moz-justify-content: center;
+  -ms-justify-content: center;
+  -o-justify-content: center;
+  justify-content: center;
+  -ms-flex-pack: center; }
+  #intro h1 {
+    font-size: 72px;
+    line-height: 1.2;
+    text-align: center;
+    font-family: PacFont; }
+  #intro #pacman-animation {
+    width: 100%;
+    height: 140px;
+    position: relative; }
+    #intro #pacman-animation > div {
+      width: 300px;
+      left: -300px;
+      position: absolute;
+      -webkit-transition: left 7s linear;
+      -moz-transition: left 7s linear;
+      transition: left 7s linear; }
+      #intro #pacman-animation > div.active {
+        left: calc(100% + 10px); }
+        #intro #pacman-animation > div.active #pac-peter {
+          background-image: url("../assets/img/peter.png"); }
+      #intro #pacman-animation > div > span {
+        width: 140px;
+        height: 140px;
+        display: inline-block;
+        background-size: contain;
+        background-repeat: no-repeat; }
+  #intro #pac-peter {
+    background-image: url("../assets/img/peter-mirror.png"); }
+  #intro #secret-satoshi {
+    background-image: url("../assets/img/secret-satoshi-logo.png"); }
