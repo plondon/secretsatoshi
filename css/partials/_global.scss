@@ -2,6 +2,7 @@ $blockchain-blue: #049bd4;
 
 html, body {
   background: $blockchain-blue;
+  font-family: Roboto;
   position: relative;
   overflow: hidden;
   height: 100%;
@@ -11,4 +12,22 @@ html, body {
 
 .hidden {
   opacity: 0;
+}
+
+button {
+  outline: 0;
+  background-color: transparent;
+  border: 2px solid black;
+  font-family: Roboto;
+  border-radius: 0px;
+  cursor: pointer;
+  font-size: 18px;
+  min-height: 40px;
+  padding-left: 15px;
+  padding-right: 15px;
+  @include transition(all 0.3s);
+  &:hover {
+    border: 2px solid white;
+    color: white;
+  }
 }

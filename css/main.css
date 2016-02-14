@@ -2,8 +2,17 @@
   font-family: PacFont;
   src: url("fonts/pacfont/pac-font.ttf"); }
 
+@font-face {
+  font-family: Roboto;
+  src: url("fonts/Roboto-Regular.ttf"); }
+
+@font-face {
+  font-family: RobotoBold;
+  src: url("fonts/Roboto-Bold.ttf"); }
+
 html, body {
   background: #049bd4;
+  font-family: Roboto;
   position: relative;
   overflow: hidden;
   height: 100%;
@@ -12,6 +21,24 @@ html, body {
 
 .hidden {
   opacity: 0; }
+
+button {
+  outline: 0;
+  background-color: transparent;
+  border: 2px solid black;
+  font-family: Roboto;
+  border-radius: 0px;
+  cursor: pointer;
+  font-size: 18px;
+  min-height: 40px;
+  padding-left: 15px;
+  padding-right: 15px;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  transition: all 0.3s; }
+  button:hover {
+    border: 2px solid white;
+    color: white; }
 
 #intro {
   height: 100%;
@@ -50,6 +77,11 @@ html, body {
   -o-justify-content: center;
   justify-content: center;
   -ms-flex-pack: center; }
+  #intro.hide {
+    opacity: 0;
+    -webkit-transition: opacity 0.5s;
+    -moz-transition: opacity 0.5s;
+    transition: opacity 0.5s; }
   #intro h1 {
     font-size: 72px;
     line-height: 1.2;
@@ -80,3 +112,66 @@ html, body {
     background-image: url("../assets/img/peter-mirror.png"); }
   #intro #secret-satoshi {
     background-image: url("../assets/img/secret-satoshi-logo.png"); }
+  #intro button {
+    margin-top: 80px; }
+
+form {
+  position: absolute;
+  height: 100%;
+  width: 100%; }
+  form > li {
+    -webkit-transform: translateY(-50%);
+    -moz-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    -o-transform: translateY(-50%);
+    transform: translateY(-50%);
+    position: absolute;
+    visibility: hidden;
+    list-style: none;
+    width: 50%;
+    left: 25%;
+    top: 50%; }
+    form > li label, form > li input {
+      opacity: 0;
+      top: 300px;
+      display: block;
+      position: relative;
+      font-family: RobotoBold; }
+    form > li label {
+      color: white; }
+    form > li.active {
+      visibility: visible; }
+  form.down > li label, form.down > li input {
+    top: 300px;
+    opacity: 0; }
+  form.down > li.active label, form.down > li.active input {
+    opacity: 1;
+    top: 0; }
+  form.down > li.active label {
+    -webkit-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    transition: all 0.5s; }
+  form.down > li.active input {
+    -webkit-transition: all 0.5s 0.1s;
+    -moz-transition: all 0.5s 0.1s;
+    transition: all 0.5s 0.1s; }
+  form.down > li.hide label, form.down > li.hide input {
+    top: -300px;
+    opacity: 0; }
+  form.up > li label, form.up > li input {
+    top: -300px;
+    opacity: 0; }
+  form.up > li.active label, form.up > li.active input {
+    opacity: 1;
+    top: 0; }
+  form.up > li.active label {
+    -webkit-transition: all 0.5s 0.1s;
+    -moz-transition: all 0.5s 0.1s;
+    transition: all 0.5s 0.1s; }
+  form.up > li.active input {
+    -webkit-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    transition: all 0.5s; }
+  form.up > li.hide label, form.up > li.hide input {
+    top: 300px;
+    opacity: 0; }

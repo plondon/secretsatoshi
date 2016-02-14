@@ -1,0 +1,79 @@
+form {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  > li {
+    @include transform(translateY(-50%));
+    position: absolute;
+    visibility: hidden;
+    list-style: none;
+    width: 50%;
+    left: 25%;
+    top: 50%;
+    label, input {
+      opacity: 0;
+      top: 300px;
+      display: block;
+      position: relative;
+      font-family: RobotoBold;
+    }
+    label {
+      color: white;
+    }
+    &.active {
+      visibility: visible;
+    }
+  }
+  &.down {
+    > li {
+      label, input {
+        top: 300px;
+        opacity: 0;
+      }
+      &.active {
+        label, input {
+          opacity: 1;
+          top: 0;
+        }
+        label {
+          @include transition(all 0.5s);
+        }
+        input {
+          @include transition(all 0.5s 0.1s);
+        }
+      }
+      &.hide {
+        label, input {
+          top: -300px;
+          opacity: 0;
+        }
+      }
+    }
+  }
+  &.up {
+    > li {
+      label, input {
+        top: -300px;
+        opacity: 0;
+      }
+      &.active {
+        label, input {
+          opacity: 1;
+          top: 0;
+        }
+        label {
+          @include transition(all 0.5s 0.1s);
+        }
+        input {
+          @include transition(all 0.5s);
+        }
+      }
+      &.hide {
+        label, input {
+          top: 300px;
+          opacity: 0;
+        }
+      }
+    }
+  }
+}

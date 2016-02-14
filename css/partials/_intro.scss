@@ -1,4 +1,8 @@
 #intro {
+  &.hide {
+    opacity: 0;
+    @include transition(opacity 0.5s);
+  }
   height: 100%;
   @include display(flex);
   @include align-items(center);
@@ -41,5 +45,9 @@
   }
   #secret-satoshi {
     background-image: url('../assets/img/secret-satoshi-logo.png'); 
+  }
+
+  button {
+    margin-top: 80px;
   }
 }
