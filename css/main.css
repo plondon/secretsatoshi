@@ -63,6 +63,78 @@ button {
     border: 2px solid white;
     color: white; }
 
+@-webkit-keyframes vulnerable {
+  0% {
+    opacity: 0; }
+  10% {
+    opacity: 1; }
+  20% {
+    opacity: 0; }
+  30% {
+    opacity: 1; }
+  40% {
+    opacity: 0; }
+  50% {
+    opacity: 1; }
+  60% {
+    opacity: 0; }
+  70% {
+    opacity: 1; }
+  80% {
+    opacity: 0; }
+  90% {
+    opacity: 1; }
+  100% {
+    opacity: 0; } }
+
+@-moz-keyframes vulnerable {
+  0% {
+    opacity: 0; }
+  10% {
+    opacity: 1; }
+  20% {
+    opacity: 0; }
+  30% {
+    opacity: 1; }
+  40% {
+    opacity: 0; }
+  50% {
+    opacity: 1; }
+  60% {
+    opacity: 0; }
+  70% {
+    opacity: 1; }
+  80% {
+    opacity: 0; }
+  90% {
+    opacity: 1; }
+  100% {
+    opacity: 0; } }
+
+@keyframes vulnerable {
+  0% {
+    opacity: 0; }
+  10% {
+    opacity: 1; }
+  20% {
+    opacity: 0; }
+  30% {
+    opacity: 1; }
+  40% {
+    opacity: 0; }
+  50% {
+    opacity: 1; }
+  60% {
+    opacity: 0; }
+  70% {
+    opacity: 1; }
+  80% {
+    opacity: 0; }
+  90% {
+    opacity: 1; }
+  100% {
+    opacity: 0; } }
+
 #intro {
   height: 100%;
   display: -webkit-box;
@@ -125,6 +197,24 @@ button {
         left: calc(100% + 10px); }
         #intro #pacman-animation > div.active #pac-peter {
           background-image: url("../assets/img/peter.png"); }
+        #intro #pacman-animation > div.active #secret-satoshi:after {
+          top: 0;
+          left: 0;
+          content: '';
+          width: 100%;
+          height: 100%;
+          position: absolute;
+          background-size: cover;
+          -webkit-animation: vulnerable;
+          -moz-animation: vulnerable;
+          animation: vulnerable;
+          -webkit-animation-duration: 7s;
+          -moz-animation-duration: 7s;
+          animation-duration: 7s;
+          -webkit-animation-iteration-count: infinite;
+          -moz-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+          background-image: url("../assets/img/secret-satoshi-logo-black.png"); }
       #intro #pacman-animation > div > span {
         width: 140px;
         height: 140px;
@@ -134,7 +224,8 @@ button {
   #intro #pac-peter {
     background-image: url("../assets/img/peter-mirror.png"); }
   #intro #secret-satoshi {
-    background-image: url("../assets/img/secret-satoshi-logo.png"); }
+    background-image: url("../assets/img/secret-satoshi-logo.png");
+    position: relative; }
   #intro button {
     margin-top: 80px; }
 
