@@ -246,7 +246,7 @@ form {
     width: 60%;
     left: 20%;
     top: 50%; }
-    form > li label, form > li input {
+    form > li label, form > li input, form > li .overview > p {
       opacity: 0;
       top: 500px;
       width: 100%;
@@ -259,12 +259,20 @@ form {
     form > li input {
       font-size: 64px;
       border-bottom: 2px solid #026c94; }
+      form > li input[type="submit"] {
+        cursor: pointer;
+        -webkit-transition: all 0.3s;
+        -moz-transition: all 0.3s;
+        transition: all 0.3s; }
+        form > li input[type="submit"]:hover {
+          color: white;
+          border-bottom: 2px solid white; }
     form > li.active {
       visibility: visible; }
-  form.down > li label, form.down > li input {
+  form.down > li label, form.down > li input, form.down > li .overview > p {
     top: 500px;
     opacity: 0; }
-  form.down > li.active label, form.down > li.active input {
+  form.down > li.active label, form.down > li.active input, form.down > li.active .overview > p {
     opacity: 1;
     top: 0; }
   form.down > li.active label {
@@ -276,13 +284,25 @@ form {
     -webkit-transition: all 0.5s 0.1s;
     -moz-transition: all 0.5s 0.1s;
     transition: all 0.5s 0.1s; }
-  form.down > li.hide label, form.down > li.hide input {
+  form.down > li.active .overview > p:first-child {
+    -webkit-transition: all 0.5s 0.2s;
+    -moz-transition: all 0.5s 0.2s;
+    transition: all 0.5s 0.2s; }
+  form.down > li.active .overview > p:nth-child(2) {
+    -webkit-transition: all 0.5s 0.3s;
+    -moz-transition: all 0.5s 0.3s;
+    transition: all 0.5s 0.3s; }
+  form.down > li.active .overview > p:nth-child(3) {
+    -webkit-transition: all 0.5s 0.4s;
+    -moz-transition: all 0.5s 0.4s;
+    transition: all 0.5s 0.4s; }
+  form.down > li.hide label, form.down > li.hide input, form.down > li.hide .overview > p {
     top: -500px;
     opacity: 0; }
-  form.up > li label, form.up > li input {
+  form.up > li label, form.up > li input, form.up > li .overview > p {
     top: -500px;
     opacity: 0; }
-  form.up > li.active label, form.up > li.active input {
+  form.up > li.active label, form.up > li.active input, form.up > li.active .overview > p {
     opacity: 1;
     top: 0; }
   form.up > li.active label {
@@ -294,7 +314,19 @@ form {
     -webkit-transition: all 0.5s;
     -moz-transition: all 0.5s;
     transition: all 0.5s; }
-  form.up > li.hide label, form.up > li.hide input {
+  form.up > li.active .overview > p:first-child {
+    -webkit-transition: all 0.5s 0.1s;
+    -moz-transition: all 0.5s 0.1s;
+    transition: all 0.5s 0.1s; }
+  form.up > li.active .overview > p:nth-child(2) {
+    -webkit-transition: all 0.5s 0.08s;
+    -moz-transition: all 0.5s 0.08s;
+    transition: all 0.5s 0.08s; }
+  form.up > li.active .overview > p:nth-child(3) {
+    -webkit-transition: all 0.5s 0.06s;
+    -moz-transition: all 0.5s 0.06s;
+    transition: all 0.5s 0.06s; }
+  form.up > li.hide label, form.up > li.hide input, form.up > li.hide .overview > p {
     top: 500px;
     opacity: 0; }
   form .error {
@@ -309,6 +341,13 @@ form {
     transition: opacity 0.3s; }
     form .error.active {
       opacity: 1; }
+  form .overview {
+    margin-bottom: 90px; }
+    form .overview p {
+      font-size: 24px !important;
+      color: white; }
+      form .overview p span {
+        color: #024d6a; }
 
 input[type="radio"] {
   opacity: 0 !important;

@@ -1,5 +1,6 @@
 var FormSlider = function() {
   this.$el = $('form');
+  this.$overview = this.$el.find('.overview');
   this.$slides = this.$el.find('> li');
   this.$dots = this.$el.find('.dots li');
   this.$error = this.$el.find('.error');
@@ -27,10 +28,11 @@ var FormSlider = function() {
     this.animateSlides(idx);
     this.updateDots(idx);
 
+    // Timeout for up/down animation
     var self = this;
     setTimeout(function() {
       $(self.$slides[idx]).addClass('active');
-    }, 10);
+    }, 100);
   }
 
   this.setDirection = function(idx) {
@@ -47,11 +49,11 @@ var FormSlider = function() {
   }
 
   this.animateSlides = function() {
-    var $active = this.$el.find('.active');
-    $active.addClass('hide');
+    var $current = this.$slides.filter('.active').addClass('hide');
 
+    // Wait until animation is completed
     setTimeout(function() {
-      $active.removeClass('active hide');
+      $current.removeClass('active hide');
     }, 700);
   }
 
@@ -76,8 +78,45 @@ var FormSlider = function() {
     this.$error.removeClass('active');
   }
 
+  this.writeOverview = function(e) {
+    var $this = $(e.currentTarget);
+    var name = $this.attr('name');
+    var val = $this.val();
+
+    this.$overview.find('.'+name)
+      .find('span')
+        .html(val);
+  }
+
+  this.submit = function(e) {
+    e.preventDefault();
+    var data = this.$el.serialize();
+
+    var promise = $.ajax({
+      url: "//formspree.io/philip@blockchain.com", 
+      dataType: "json",
+      method: "POST",
+      data: data
+    })
+
+    promise.done(this.success);
+    promise.fail(this.error);
+
+  }
+
+  this.success = function(data) {
+    console.log('success');
+    console.log(data);
+  }
+
+  this.error = function(data) {
+    console.log('error');
+    console.log(data);
+  }
+
   this.bindEvents = function() {
     var self = this;
+
     this.$dots.on('click', function() {
       var idx = $(this).index();
       if ( idx === self.idx ) return;
@@ -85,13 +124,6 @@ var FormSlider = function() {
       self.goto(idx);
     });
 
-    this.$nav.find('li.next').on('click', function() {
-      self.next();
-    });
-
-    this.$nav.find('li.prev').on('click', function() {
-      self.prev();
-    });
 
     this.$slides.find('input').on('keydown', function(e) {
       if (e.keyCode === 13) { 
@@ -99,6 +131,17 @@ var FormSlider = function() {
         self.next();
       }
     });
+
+    this.$el.on('submit', this.submit.bind(this))
+
+    this.$nav.find('li.next').on('click', this.next.bind(this));
+
+    this.$nav.find('li.prev').on('click', this.prev.bind(this));
+
+    this.$slides.find('input').on('keyup', this.writeOverview.bind(this));
+
+    this.$slides.find('input').on('change', this.writeOverview.bind(this));
+
 
   }
 

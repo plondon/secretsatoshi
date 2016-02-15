@@ -40,7 +40,7 @@
     <button id="init">Get Started</button>
   </div>
 
-  <form action="//formspree.io/philip@blockchain.com" method="POST">
+  <form action="" method="POST" novalidate>
       <div id="logo">
         <img src="assets/img/secret-satoshi-logo.png">
       </div>
@@ -59,12 +59,17 @@
       </li>
       <li>
         <label>How much would you like to give?</label>
-        <input type="radio" name="amount" value="100" id="100" checked>
+        <input type="radio" name="amount" value="$100" id="100" checked>
         <label for="100">$100</label>
-        <input type="radio" name="amount" value="200" id="200">
+        <input type="radio" name="amount" value="$200" id="200">
         <label for="200">$200</label>
       </li>
       <li>
+        <div class="overview">
+          <p class="from">From: <span></span></p>
+          <p class="to">To: <span></span></p>
+          <p class="amount">Amount: <span>$100</span></p>
+        </div>
         <input type="submit" value="Send">
       </li>
 
