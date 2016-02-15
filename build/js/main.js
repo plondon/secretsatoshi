@@ -36,6 +36,7 @@ var FormSlider = function() {
     this.setDirection(idx);
     this.animateSlides(idx);
     this.updateDots(idx);
+    this.updateNav(idx);
 
     // Timeout for up/down animation
     var self = this;
@@ -69,6 +70,16 @@ var FormSlider = function() {
   this.updateDots = function(idx) {
     this.$dots.removeClass('active');
     $(this.$dots[idx]).addClass('active');
+  }
+
+  this.updateNav = function(idx) {
+    this.$nav.find('.prev, .next').css('opacity', 1);
+    if (idx === 0) {
+      this.$nav.find('.prev').css('opacity', 0);
+    }
+    if (idx === 3) {
+      this.$nav.find('.next').css('opacity', 0); 
+    }
   }
 
   this.getErrors = function() {
@@ -148,13 +159,13 @@ var FormSlider = function() {
     this.$el.on('submit', this.submit.bind(this))
 
     this.$nav.find('li.next').on('click', this.next.bind(this));
+    this.$nav.find('.return').on('click', this.next.bind(this));
 
     this.$nav.find('li.prev').on('click', this.prev.bind(this));
 
     this.$slides.find('input').on('keyup', this.writeOverview.bind(this));
 
     this.$slides.find('input').on('change', this.writeOverview.bind(this));
-
 
   }
 
