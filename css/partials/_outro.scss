@@ -1,0 +1,64 @@
+#outro {
+  background-color: $darkest-blue;
+  @include transition(top 0.5s);
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  top: 100%;
+  &.active {
+    top: 0px;
+    p {
+      top: 0px;
+      opacity: 1;
+      &:nth-child(1) {
+        @include transition(all 0.5s 0.1s);
+      }
+      &:nth-child(2) {
+        @include transition(all 0.5s 0.2s);
+      }
+      &:nth-child(3) {
+        @include transition(all 0.5s 0.2s);
+      }
+      span {
+        font-size: 28px; 
+      }
+    }
+  }
+  p {
+    left: 15%;
+    top: 300px;
+    opacity: 0;
+    color: white;
+    max-width: 70%;
+    position: relative;
+    @media (max-width: 768px) {
+      max-width: 80%;
+      left: 5%;
+    }
+    &.quote {
+      font-size: 72px;
+      font-style: italic;
+      font-family: RobotoBold;
+    }
+    &.author {
+      left: -15%;
+      top: -50px;
+      float: right;
+      font-size: 28px;
+    }
+    &.success {
+      top: 80%;
+      font-size: 18px;
+      position: absolute;
+    }
+    @media (max-width: 768px) {
+      &.quote {
+        font-size: 36px;
+      }
+      &.author {
+        top: -30px;
+        font-size: 18px;
+      }
+    }
+  }
+}

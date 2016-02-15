@@ -11,6 +11,13 @@ form {
     width: 60%;
     left: 20%;
     top: 50%;
+    @media (max-width: 768px) {
+      width: 80%;
+      left: 5%;
+      &:last-of-type {
+        left: 10%;
+      }
+    }
     label, input, .overview > p {
       opacity: 0;
       top: 500px;
@@ -19,6 +26,9 @@ form {
       font-size: 48px;
       position: relative;
       font-family: RobotoBold;
+      @media (max-width: 768px) {
+        font-size: 20px;
+      }
     }
     label {
       color: white;
@@ -26,6 +36,9 @@ form {
     input {
       font-size: 64px;
       border-bottom: 2px solid $dark-blue;
+      @media (max-width: 768px) {
+        font-size: 24px;
+      }
       &[type="submit"] {
         cursor: pointer;
         @include transition(all 0.3s);
@@ -123,6 +136,9 @@ form {
     position: absolute;
     font-family: RobotoBold;
     @include transition(opacity 0.3s);
+    @media (max-width: 768px) {
+      left: 5%;
+    }
     &.active {
       opacity: 1;
     }
@@ -167,6 +183,18 @@ input[type="radio"] {
       font-family: 'FontAwesome';
       @include transition(opacity 0.3s);
     }
+    @media (max-width: 768px) {
+      font-size: 34px;
+      &:before {
+        height: 15px;
+        width: 15px;
+        top: -1px;
+      }
+      &:after {
+        top: 8px;
+        font-size: 24px;
+      }
+    }
   }
   &:checked + label {
     color: $darkest-blue;
@@ -195,12 +223,24 @@ input[type="radio"] {
       background-color: white;
     }
   }
+  @media (max-width: 768px) {
+    margin-top: -20px;
+    right: 5%;
+    li {
+      height: 10px;
+      width: 10px;
+    }
+  }
 }
 
 .nav {
   position: absolute;
   bottom: 50px;
   right: 90px;
+  @media (max-width: 768px) {
+    bottom: 30px;
+    right: 35px;
+  }
   > li {
     float: left;
     left: -10px;

@@ -99,14 +99,18 @@ var FormSlider = function() {
       data: data
     })
 
-    promise.done(this.success);
-    promise.fail(this.error);
+    promise.done(this.success.bind(this));
+    promise.fail(this.error.bind(this));
 
   }
 
   this.success = function(data) {
-    console.log('success');
-    console.log(data);
+    $('#outro').addClass('active');
+
+    var self = this;
+    setTimeout(function() {
+      self.$el.remove();
+    }, 500);
   }
 
   this.error = function(data) {
