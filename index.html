@@ -20,6 +20,7 @@
 
   <!-- CSS -->
   <link rel="stylesheet" type="text/css" href="css/main.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 
   <!-- JS -->
   <script type="text/javascript" src="bower_components/jquery/dist/jquery.min.js"></script>
@@ -40,21 +41,44 @@
   </div>
 
   <form action="//formspree.io/philip@blockchain.com" method="POST">
+      <div id="logo">
+        <img src="assets/img/secret-satoshi-logo.png">
+      </div>
+
+      <div class="error">
+        Sorry, you can't live this blank.
+      </div>
+
       <li>
-        <label>Name</label>
-        <input type="text" name="name">
+        <label>What's your name?</label>
+        <input type="text" name="from" placeholder="Satoshi Nakamoto">
       </li>
       <li>
-        <label>Email</label>
-        <input type="email" name="email">
+        <label>Who are you sending this to?</label>
+        <input type="email" name="to" placeholder="philip@blockchain.com">
       </li>
       <li>
-        <label>Optional Message</label>
-        <input type="text" name="msg">
+        <label>How much would you like to give?</label>
+        <input type="radio" name="amount" value="100" id="100" checked>
+        <label for="100">$100</label>
+        <input type="radio" name="amount" value="200" id="200">
+        <label for="200">$200</label>
       </li>
       <li>
         <input type="submit" value="Send">
       </li>
+
+      <ul class="dots">
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+      </ul>
+
+      <ul class="nav">
+        <li class="prev"></li>
+        <li class="next"></li>
+      </ul>
   </form>
 
 </body>

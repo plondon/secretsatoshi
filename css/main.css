@@ -19,13 +19,35 @@ html, body {
   width: 100%;
   margin: 0px; }
 
+h1 {
+  color: #026c94; }
+
 .hidden {
   opacity: 0; }
 
-button {
+#logo {
+  position: absolute;
+  left: 20px;
+  top: 20px; }
+  #logo img {
+    height: 60px; }
+
+input, button {
   outline: 0;
-  background-color: transparent;
-  border: 2px solid black;
+  border: 0px;
+  color: #024d6a;
+  background: transparent; }
+  input::-webkit-input-placeholder, button::-webkit-input-placeholder {
+    color: #037ca9; }
+  input::-moz-placeholder, button::-moz-placeholder {
+    color: #037ca9; }
+  input:-moz-placeholder, button:-moz-placeholder {
+    color: #037ca9; }
+  input:-ms-input-placeholder, button:-ms-input-placeholder {
+    color: #037ca9; }
+
+button {
+  border: 2px solid #037ca9;
   font-family: Roboto;
   border-radius: 0px;
   cursor: pointer;
@@ -33,6 +55,7 @@ button {
   min-height: 40px;
   padding-left: 15px;
   padding-right: 15px;
+  color: #037ca9;
   -webkit-transition: all 0.3s;
   -moz-transition: all 0.3s;
   transition: all 0.3s; }
@@ -127,27 +150,34 @@ form {
     transform: translateY(-50%);
     position: absolute;
     visibility: hidden;
+    margin-top: -54px;
     list-style: none;
-    width: 50%;
-    left: 25%;
+    width: 60%;
+    left: 20%;
     top: 50%; }
     form > li label, form > li input {
       opacity: 0;
-      top: 300px;
+      top: 500px;
+      width: 100%;
       display: block;
+      font-size: 48px;
       position: relative;
       font-family: RobotoBold; }
     form > li label {
       color: white; }
+    form > li input {
+      font-size: 64px;
+      border-bottom: 2px solid #026c94; }
     form > li.active {
       visibility: visible; }
   form.down > li label, form.down > li input {
-    top: 300px;
+    top: 500px;
     opacity: 0; }
   form.down > li.active label, form.down > li.active input {
     opacity: 1;
     top: 0; }
   form.down > li.active label {
+    top: -20px;
     -webkit-transition: all 0.5s;
     -moz-transition: all 0.5s;
     transition: all 0.5s; }
@@ -156,15 +186,16 @@ form {
     -moz-transition: all 0.5s 0.1s;
     transition: all 0.5s 0.1s; }
   form.down > li.hide label, form.down > li.hide input {
-    top: -300px;
+    top: -500px;
     opacity: 0; }
   form.up > li label, form.up > li input {
-    top: -300px;
+    top: -500px;
     opacity: 0; }
   form.up > li.active label, form.up > li.active input {
     opacity: 1;
     top: 0; }
   form.up > li.active label {
+    top: -20px;
     -webkit-transition: all 0.5s 0.1s;
     -moz-transition: all 0.5s 0.1s;
     transition: all 0.5s 0.1s; }
@@ -173,5 +204,101 @@ form {
     -moz-transition: all 0.5s;
     transition: all 0.5s; }
   form.up > li.hide label, form.up > li.hide input {
-    top: 300px;
+    top: 500px;
     opacity: 0; }
+  form .error {
+    top: 25%;
+    left: 20%;
+    opacity: 0;
+    color: #e88197;
+    position: absolute;
+    font-family: RobotoBold;
+    -webkit-transition: opacity 0.3s;
+    -moz-transition: opacity 0.3s;
+    transition: opacity 0.3s; }
+    form .error.active {
+      opacity: 1; }
+
+input[type="radio"] {
+  opacity: 0 !important;
+  cursor: pointer; }
+  input[type="radio"] + label {
+    cursor: pointer;
+    font-size: 64px;
+    color: #037ca9;
+    -webkit-transition: color 0.3s;
+    -moz-transition: color 0.3s;
+    transition: color 0.3s; }
+    input[type="radio"] + label:before {
+      border: 2px solid white;
+      display: inline-block;
+      margin-right: 20px;
+      position: relative;
+      height: 30px;
+      width: 30px;
+      content: '';
+      top: -5px; }
+    input[type="radio"] + label:after {
+      left: 0;
+      top: 15px;
+      opacity: 0;
+      font-size: 42px;
+      content: '\f00c';
+      position: absolute;
+      font-family: 'FontAwesome';
+      -webkit-transition: opacity 0.3s;
+      -moz-transition: opacity 0.3s;
+      transition: opacity 0.3s; }
+  input[type="radio"]:checked + label {
+    color: #024d6a;
+    position: relative; }
+    input[type="radio"]:checked + label:after {
+      opacity: 1; }
+
+.dots {
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  -o-transform: translateY(-50%);
+  transform: translateY(-50%);
+  position: absolute;
+  right: 100px;
+  top: 50%; }
+  .dots li {
+    -webkit-transition: background-color 0.3s;
+    -moz-transition: background-color 0.3s;
+    transition: background-color 0.3s;
+    background-color: #024d6a;
+    border-radius: 50%;
+    margin-bottom: 20px;
+    list-style: none;
+    cursor: pointer;
+    height: 20px;
+    width: 20px; }
+    .dots li:hover, .dots li.active {
+      background-color: white; }
+
+.nav {
+  position: absolute;
+  bottom: 50px;
+  right: 90px; }
+  .nav > li {
+    float: left;
+    left: -10px;
+    cursor: pointer;
+    list-style: none;
+    position: relative; }
+    .nav > li:before {
+      font-size: 24px;
+      content: '\f060';
+      color: #037ca9;
+      font-family: 'FontAwesome';
+      -webkit-transition: color 0.3s;
+      -moz-transition: color 0.3s;
+      transition: color 0.3s; }
+    .nav > li.next {
+      left: 10px; }
+      .nav > li.next:before {
+        content: '\f061'; }
+    .nav > li:hover:before {
+      color: #024d6a; }

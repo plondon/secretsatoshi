@@ -14,9 +14,9 @@ var init = function() {
 
   });
 
-  setTimeout(function() {
-    $('#init').trigger('click');
-  }, 0);
+  // setTimeout(function() {
+  //   $('#init').trigger('click');
+  // }, 0);
 }
 
 module.exports = init;
