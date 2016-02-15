@@ -1,5 +1,6 @@
 var gulp = require('gulp');
 var sass = require('gulp-sass');
+var uglify = require('gulp-uglify');
 var browserify = require('gulp-browserify');
 
 gulp.task('styles', function() {
@@ -10,7 +11,9 @@ gulp.task('styles', function() {
 
 gulp.task('scripts', function() {
   gulp.src('./js/main.js')
-  .pipe(browserify({})).pipe(gulp.dest('./build/js'));
+  .pipe(browserify({}))
+  .pipe(uglify())
+  .pipe(gulp.dest('./build/js'));
 });
 
 gulp.task('default', function() {
